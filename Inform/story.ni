@@ -468,7 +468,8 @@ Include Feral Sea Dragon by Blue Bishop.
 Include Feral Sea Dragoness by Blue Bishop.
 Include Feral Shaft Beast by Guest Writers.
 Include Feral Unicorn by Taelyn.
-Include Feral Wolf by Stripes.
+Include Feral Wolf Bitch by Prometheus.
+Include Feral Wolf Male by Stripes.
 Include Ferret Infection by Luneth.
 Include Fire Elemental by Stripes.
 Include Fire Sprite by AGentlemanCalledB.
@@ -576,6 +577,7 @@ Include Mutated Islanders by Kernog.
 Include Naga by Nuku Valente.
 Include Naiad by Wahn.
 Include Naughty Nurse by Stripes.
+Include Nekomimi Boy by Prometheus.
 Include Nerdy Mouse by McRabid.
 Include Nightmare by Sarokcat.
 Include Ocelot by Stripes.
@@ -664,7 +666,9 @@ Include Toven by Wahn.
 Include Trash Coon by Stripes.
 Include Triceratops by Stripes.
 Include Twisted Pimp by Sarokcat.
+Include Tyrannosaurus Male by Gherod.
 Include Unicorn by Sarokcat.
+Include Valkyrie by Qazarar.
 Include Viking Man by Wahn.
 Include Viking Woman by Wahn.
 Include Vixentaur by Stripes.
@@ -693,6 +697,7 @@ Include Ace by Aureas Gigas.
 Include Adam by Wahn.
 Include Aeca by Wahn.
 Include Alex by Stripes.
+Include Alpha by Wahn.
 Include Arcanologist by Taelyn.
 Include Bad Alexandra by Wahn.
 Include Allen by Wahn.
