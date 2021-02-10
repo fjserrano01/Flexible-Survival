@@ -417,38 +417,38 @@ to AddCaffeineBoost:
 	add "CaffeineBoost" to Traits of Player;
 	now PreviousCaffeineBody is Bodytype of Player;
 	if BodyName of Player is listed in infections of RodentList:
-		addCaffeineBoostRodent;
+		addCaffeinePerksRodent;
 	else if BodyName of Player is listed in infections of MustelidList:
-		addCaffeineBoostMustelid;
+		addCaffeinePerksMustelid;
 	else if BodyName of Player is listed in infections of MarsupialList:
-		addCaffeineBoostMarsupial;
+		addCaffeinePerksMarsupial;
 	else:
-		addCaffeineBoostDefault;
+		addCaffeinePerksDefault;
 
 [Removes the boost given by previous bodypart of player]
 to removeCaffeineBoost:
 	if "CaffeineBoost" is listed in Traits of Player:
 		remove "CaffeineBoost" from Traits of Player;
 		if PreviousCaffeineBody is listed in infections of RodentList:
-			removeCaffeineBoostRodent;
+			removeCaffeinePerksRodent;
 		else if PreviousCaffeineBody is listed in infections of MustelidList:
-			removeCaffeineBoostMustlelid;
+			removeCaffeinePerksMustlelid;
 		else if PreviousCaffeineBody is listed in infections of MarsupialList:
-			removeCaffeineBoostMustlelid;
+			removeCaffeinePerksMustlelid;
 		else if PreviousCaffeineBody:
-			removeCaffeineBoostDefault;
+			removeCaffeinePerksDefault;
 
-to addCaffeineBoostRodent:
-to removeCaffeineBoostRodent:
+to addCaffeinePerksRodent:
+to removeCaffeinePerksRodent:
 
-to addCaffeineBoostMustelid:
-to removeCaffeineBoostMustlelid:
+to addCaffeinePerksMustelid:
+to removeCaffeinePerksMustlelid:
 
-to addCaffeineBoostMarsupial:
-to removeCaffeineBoostMarsupial:
+to addCaffeinePerksMarsupial:
+to removeCaffeinePerksMarsupial:
 
-to addCaffeineBoostDefault:
-to removeCaffeineBoostDefault:
+to addCaffeinePerksDefault:
+to removeCaffeinePerksDefault:
 
 
 
