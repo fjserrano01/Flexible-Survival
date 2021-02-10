@@ -324,16 +324,26 @@ to say CandyShopsex7:
 Section 4 - Caffeine Buzz
 
 the player has a number called caffeinehigh.
+PreviousCaffeineBody is a text that varies.[@Tag:NotSaved]
 
 to sfsodadrink:
-	if BodyName of Player is "Sugar Ferret":
+	[if BodyName of Player is "Sugar Ferret":
 		if caffeinehigh of Player > 0:
 			sfcaffeineboost;
-		else:
-			sfcaffeine;
+		else:]
+	AddCaffeinePoints 1;
 
-to sfcaffeine:
-	increase caffeinehigh of Player by a random number between 7 and 9;
+[to sfcaffeine (num - a number):
+		[increase caffeine high of player, do not change bonuses for now]
+		let caffeineNum be caffeinehigh of Player + num;
+		if caffeineNum < 0:
+			now caffeineNum is 0;
+		now caffeinehigh of player is caffeineNum;
+		UpdateCaffeineStatus;]
+		[add effects depending on bodytype of player, and set PreviousCaffeineState to current body type infection]
+		[PreviousCaffeineState to be able to remove previous bonuses and add ones pertaining to current status]
+		[add bonuses depending on if body type is in RodentList/mustlelids/marsupials, else they have same minor effects]
+	[increase caffeinehigh of Player by a random number between 7 and 9;
 	increase intelligence of Player by 2;
 	increase stamina of Player by 4;
 	increase maxHP of Player by 2 + (2 * level of Player);
@@ -364,10 +374,19 @@ to sfcaffeineboost:
 		decrease healed by HP of Player minus maxHP of Player;
 		now HP of Player is maxHP of Player;
 	say "     Feeling the rush of more carbonated delight down your throat, you twitch as a rush of fresh energy fills you. Your ferret body twitches and you feel a burst of new endurance, pushing you to keep going without pause. Along with this comes the arousal of excitement and manic, ferrety impulses. Aside from helping to quench your thirst for sugary sweetness, you recover [special-style-1][healed][roman type] HP.";
-
+]
 an everyturn rule:
-	if caffeinehigh of Player is not 0:
+	if caffeinhigh of Player > 0:
+		now caffeinehigh of Player is caffeinehigh of Player - 1;
+		UpdateCaffeineStatus;
+	if caffeinehigh of Player is 0:
+		UpdateCaffeineStatus;
+[
+	if caffeinehigh of Player > 0:
+		removeCaffeineBoostOfPlayer;
 		decrease caffeinehigh of Player by 1;
+		if caffeinehigh of Player is not 0:
+			AddCaffeineBoostToPlayerByPart;
 		if "Strong Psyche" is not listed in feats of Player and a random chance of 1 in 2 succeeds, decrease humanity of Player by 2;
 		if "Weak Psyche" is listed in feats of Player and a random chance of 1 in 2 succeeds, decrease humanity of Player by 1;
 		if caffeinehigh of Player <= 0 or BodyName of Player is not "Sugar Ferret":
@@ -384,6 +403,53 @@ an everyturn rule:
 			if Libido of Player < 0, now Libido of Player is 0;
 			SanBoost 5;
 			decrease morale of Player by 5;
+			]
+to UpdateCaffeineStatus:
+	if caffeinehigh of Player is 0 and "CaffeineBoost" is listed in Traits of Player:
+		removeCaffeineBoost;
+		now PreviousCaffeineBody is "None";
+	if caffeinhigh of Player >= 2:
+		removeCaffeineBoost;
+		AddCaffeineBoost;
+
+[Adds caffeine boost to player by bodypart of Player]
+to AddCaffeineBoost:
+	add "CaffeineBoost" to Traits of Player;
+	now PreviousCaffeineBody is Bodytype of Player;
+	if BodyName of Player is listed in infections of RodentList:
+		addCaffeineBoostRodent;
+	else if BodyName of Player is listed in infections of MustelidList:
+		addCaffeineBoostMustelid;
+	else if BodyName of Player is listed in infections of MarsupialList:
+		addCaffeineBoostMarsupial;
+	else:
+		addCaffeineBoostDefault;
+
+[Removes the boost given by previous bodypart of player]
+to removeCaffeineBoost:
+	if "CaffeineBoost" is listed in Traits of Player:
+		remove "CaffeineBoost" from Traits of Player;
+		if PreviousCaffeineBody is listed in infections of RodentList:
+			removeCaffeineBoostRodent;
+		else if PreviousCaffeineBody is listed in infections of MustelidList:
+			removeCaffeineBoostMustlelid;
+		else if PreviousCaffeineBody is listed in infections of MarsupialList:
+			removeCaffeineBoostMustlelid;
+		else if PreviousCaffeineBody:
+			removeCaffeineBoostDefault;
+
+to addCaffeineBoostRodent:
+to removeCaffeineBoostRodent:
+
+to addCaffeineBoostMustelid:
+to removeCaffeineBoostMustlelid:
+
+to addCaffeineBoostMarsupial:
+to removeCaffeineBoostMarsupial:
+
+to addCaffeineBoostDefault:
+to removeCaffeineBoostDefault:
+
 
 
 Section 9 - Definitions

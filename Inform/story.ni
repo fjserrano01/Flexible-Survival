@@ -152,6 +152,7 @@ Include Basic Locations by Core Mechanics.
 Include Basic Shops by Core Mechanics.
 Include BFandI by Core Mechanics.
 Include Bound State Universals by Core Mechanics.
+Include CaffeineMechanic by Core Mechanics.
 Include Debugging Tools by Core Mechanics.
 Include Definitions by Core Mechanics.
 Include Expanded Clothing Mechanics by Core Mechanics.
