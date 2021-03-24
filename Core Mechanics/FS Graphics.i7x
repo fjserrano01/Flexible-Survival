@@ -389,6 +389,12 @@ Figure of Mason_icon is the file "Mason.jpg".
 Figure of Medea_face_icon is the file "Medea_face.jpg".
 Figure of Mike_face_icon is the file "Mike_face.jpg".
 Figure of Mike_icon is the file "Mike.jpg".
+Figure of Mogdraz_clothed_icon is the file "Mogdraz_clothed.jpg".
+Figure of Mogdraz_face_icon is the file "Mogdraz_face.jpg".
+Figure of Mogdraz_nakedsoft_icon is the file "Mogdraz_nakedsoft.jpg".
+Figure of Mogdraz_nakedhard_icon is the file "Mogdraz_nakedhard.jpg".
+Figure of Mogdraz_noharness_icon is the file "Mogdraz_noharness.jpg".
+Figure of Mogdraz_underwear_icon is the file "Mogdraz_underwear.jpg".
 Figure of Monty_ass_icon is the file "Monty_ass.jpg".
 Figure of Monty_clothed_icon is the file "Monty_clothed.jpg".
 Figure of Monty_combat_icon is the file "Monty_combat.jpg".
@@ -1040,6 +1046,12 @@ title	icon(figure name)	artist	backgroundcolor	formatrule
 "Mike"	Figure of Mike_icon	"Darian821"	g-black	"normal"
 "Minotaur hard"	Figure of Minotaur_hard_icon	"Vashaa"	g-White	"normal"
 "Minotaur naked"	Figure of Minotaur_naked_icon	"Vashaa"	g-White	"normal"
+"Mogdraz_clothed"	Figure of Mogdraz_clothed_icon	"Gherod"	g-black	"normal"
+"Mogdraz_face"	Figure of Mogdraz_face_icon	"Gherod"	g-black	"normal"
+"Mogdraz_nakedsoft"	Figure of Mogdraz_nakedsoft_icon	"Gherod"	g-black	"normal"
+"Mogdraz_nakedhard"	Figure of Mogdraz_nakedhard_icon	"Gherod"	g-black	"normal"
+"Mogdraz_noharness"	Figure of Mogdraz_noharness_icon	"Gherod"	g-black	"normal"
+"Mogdraz_underwear"	Figure of Mogdraz_underwear_icon	"Gherod"	g-black	"normal"
 "Monty_ass"	Figure of Monty_ass_icon	"Obieblu"	g-white	"normal"
 "Monty_combat"	Figure of Monty_combat_icon	"Obieblu"	g-white	"normal"
 "Monty_postcombat"	Figure of Monty_postcombat_icon	"Obieblu"	g-white	"normal"
@@ -1423,7 +1435,7 @@ carry out artistcredits:
 	say "     Satyress by Vashaa @ https://www.furaffinity.net/user/vashaa/[line break]";
 	say "     Sea Dragon by Vashaa @ https://www.furaffinity.net/user/vashaa/[line break]";
 	say "     Shadow Beast by Hioshiru @ https://www.furaffinity.net/user/hioshiru/[line break]";
-	say "     Smooth Collie Shemale by Vashaa @ https://www.furaffinity.net/user/vashaa/[line break]";
+	say "     Smooth Collie Shemale by SteppeCrow @ https://www.furaffinity.net/user/steppecrow/[line break]";
 	say "     Siamese Cats by RedCoatCat @ furaffinity.net[line break]";
 	say "     Snow Bat by Rosali @ Furaffinity.net[line break]";
 	say "     Snow Leopard by Vashaa @ https://www.furaffinity.net/user/vashaa/[line break]";
@@ -1557,6 +1569,7 @@ carry out artistcredits:
 	say "     Micaela by Kattzie @ furaffinity.net[line break]";
 	say "     Mike (face) SineAlas @ https://www.furaffinity.net/user/SineAlas/[line break]";
 	say "     Mike by Darian821 @ y-gallery.net[line break]";
+	say "     Mogdraz by Gherod @ https://twitter.com/gherodv ; https://www.instagram.com/gherodv/[line break]";
 	say "     Moreau by Lyttathebug @ https://lyttathebug.deviantart.com/[line break]";
 	say "     Mul by Kupo Klein @ http://kupo-klein.tumblr.com/[line break]";
 	say "     Nadia by Anymouse1968 @ furaffinity.net[line break]";
