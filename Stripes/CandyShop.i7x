@@ -149,7 +149,7 @@ to say Sweet Tooth scene:
 			say "     You hear some rustling in your pack as one of them starts ferreting through it. The pale blue jill even stuffs her head inside, but comes up with nothing. 'Aww! I was hoping for a drink to celebrate!' 'Here! I've got you covered,' a hob says excitedly, pulling out a can of Mountain Don't. He takes a big swig from the can before pressing it to your lips. You momentarily consider resisting, but as that sweet, carbonated ambrosia touches your lips, you can't help but open wide and swallow it down. As the caffeinated drink flows down your throat and into your body, you can feel a rush of excitement overtake you. You twitch as the caffeine rushes into your bloodstream and make grabby paws to get the can back as another ferret tries to take a drink. 'Oh! That's gooood! Gimme more!' you say excitedly. The others pull bottles and cans out from hidden stashes and soon everyone's gulping down soda.";
 			now lastcaffeine of Sweet Tooth is turns;
 			decrease thirst of Player by 6;
-		sfcaffeine; [activates effects of Sugar Ferret caffeine high]
+		AddCaffeinePoints 2; [activates effects of Sugar Ferret caffeine high]
 		say "     An orgy of wild, ferrety sex breaks out as the hobs and jills get aroused in their caffeine-induced excitement. The place if filled with groups of vibrantly colorful ferrets licking, sucking and fucking one another wildly. And you're at the center of this, jills and hobs lustfully welcoming you to their group[if Player is herm]. You fuck and are fucked several times over the course of the orgiastic event[else if Player is male]. You fuck several of the ferrets over the course of the orgiastic event[else]. You are fucked several times by the hobs over the course of the orgiastic event[end if], though the details all quickly become a blur of bright colors and sweet, sweet soda. Eventually it winds down somewhat when a large mob of ferrets rush outside with plans to scour the fairground for more soda. Still having a little self-control, you bound away with a surplus of energy.[impregchance]";
 		infect "Sugar Ferret";
 		increase ferretvisit by 1;
@@ -220,7 +220,7 @@ to say Sweet Tooth scene:
 			say "     One of the ferrets pulls out a big bottle of cola and starts passing it around. Too excited to think clearly, you grab the bottle as soon as it gets close enough, taking a big swig and enjoying the wild rush the caffeine in it gives you. The others around you bounce around excitedly and more pop is pulled out from hidden stashes. You moan excitedly as a manic energy starts to suffuse you, filling you with a rush that's half lust and half a craving for more[if the player is sugarfaced]. Your eyes turn a bright red like those of the other ferrets around you as the caffeine makes you manic. Your teeth grow sharp and pointed and you gain a wide, toothy grin[end if][if the player is sugarskinned]. Your pastel fur grows richer in color, becoming a vibrant purple[end if]. You can't sit still at this point, filled with so much wild energy.";
 			now lastcaffeine of Sweet Tooth is turns;
 			decrease thirst of Player by 6;
-		sfcaffeine; [activates effects of Sugar Ferret caffeine high]
+		AddCaffeinePoints 2; [activates effects of Sugar Ferret caffeine high]
 		follow the cock descr rule;
 		follow the cunt descr rule;
 		now randomferret is { 1, 2, 3 };
@@ -376,7 +376,9 @@ to sfcaffeineboost:
 	say "     Feeling the rush of more carbonated delight down your throat, you twitch as a rush of fresh energy fills you. Your ferret body twitches and you feel a burst of new endurance, pushing you to keep going without pause. Along with this comes the arousal of excitement and manic, ferrety impulses. Aside from helping to quench your thirst for sugary sweetness, you recover [special-style-1][healed][roman type] HP.";
 ]
 an everyturn rule:
-	if caffeinhigh of Player > 0:
+	say "     Caffeine high number is [caffeinehigh of Player]";
+	if caffeinehigh of Player > 0:
+		say "     Everyturn rule caffeine high.";
 		now caffeinehigh of Player is caffeinehigh of Player - 1;
 		UpdateCaffeineStatus;
 	if caffeinehigh of Player is 0:
@@ -406,49 +408,113 @@ an everyturn rule:
 			]
 to UpdateCaffeineStatus:
 	if caffeinehigh of Player is 0 and "CaffeineBoost" is listed in Traits of Player:
+		say "     In Update Caffeine Status if caffeine is 0 and caffeine boost is listed";
 		removeCaffeineBoost;
 		now PreviousCaffeineBody is "None";
-	if caffeinhigh of Player >= 2:
+	if caffeinehigh of Player >= 2:
+		say "     caffeine high of player is greater than or equal to 2";
 		removeCaffeineBoost;
 		AddCaffeineBoost;
 
 [Adds caffeine boost to player by bodypart of Player]
 to AddCaffeineBoost:
+	say "     adding caffeine boost.";
 	add "CaffeineBoost" to Traits of Player;
 	now PreviousCaffeineBody is Bodytype of Player;
-	if BodyName of Player is listed in infections of RodentList:
+	if BodyName of Player is listed in Infections of RodentList:
 		addCaffeinePerksRodent;
-	else if BodyName of Player is listed in infections of MustelidList:
+	else if BodyName of Player is listed in Infections of MustelidList:
 		addCaffeinePerksMustelid;
-	else if BodyName of Player is listed in infections of MarsupialList:
+	else if BodyName of Player is listed in Infections of MarsupialList:
 		addCaffeinePerksMarsupial;
+	else if BodyName of Player is listed in Infections of AvianList:
+		addCaffeinePerksAvian;
+	else if BodyName of Player is listed in Infections of HumanList:
+		addCaffeinePerksHuman;
+	else if BodyName of Player is listed in Infections of InsectList:
+		addCaffeinePerksInsect;
+	else if BodyName of Player is listed in Infections of PrimateList:
+		addCaffeinePerksPrimate;
 	else:
 		addCaffeinePerksDefault;
 
 [Removes the boost given by previous bodypart of player]
 to removeCaffeineBoost:
 	if "CaffeineBoost" is listed in Traits of Player:
+		say "     Removing caffeine boost from player.";
 		remove "CaffeineBoost" from Traits of Player;
-		if PreviousCaffeineBody is listed in infections of RodentList:
+		if PreviousCaffeineBody is listed in Infections of RodentList:
 			removeCaffeinePerksRodent;
-		else if PreviousCaffeineBody is listed in infections of MustelidList:
+		else if PreviousCaffeineBody is listed in Infections of MustelidList:
 			removeCaffeinePerksMustlelid;
-		else if PreviousCaffeineBody is listed in infections of MarsupialList:
+		else if PreviousCaffeineBody is listed in Infections of MarsupialList:
 			removeCaffeinePerksMustlelid;
-		else if PreviousCaffeineBody:
+		else if PreviousCaffeineBody is listed in Infections of AvianList:
+			removeCaffeinePerksAvian;
+		else if PreviousCaffeineBody is listed in Infections of HumanList:
+			removeCaffeinePerksHuman;
+		else if PreviousCaffeineBody is listed in Infections of InsectList:
+			removeCaffeinePerksInsect;
+		else if PreviousCaffeineBody is listed in Infections of PrimateList:
+			removeCaffeinePerksPrimate;
+		else:
 			removeCaffeinePerksDefault;
 
+to addCaffeinePerksAvian:
+	say "     the caffeine is avian";
+	StatChange "Intelligence" by 10;
+to removeCaffeinePerksAvian:
+	say "     the caffeine is avian removed";
+	StatChange "Intelligence" by -10;
+
+to addCaffeinePerksHuman:
+	say "     the caffeine is  human";
+	StatChange "Intelligence" by 10;
+to removeCaffeinePerksHuman:
+	say "     the caffeine is humanre moved";
+	StatChange "Intelligence" by -10;
+
+to addCaffeinePerksInsect:
+	say "     adding caffeinfghfge perggkss insect";
+	StatChange "Intelligence" by 10;
+to removeCaffeinePerksInsect:
+	say "     removing caffefghfghine pfghessrk insect";
+	StatChange "Intelligence" by -10;
+
+to addCaffeinePerksPrimate:
+	say "     adding caffeinsse prssssimate";
+	StatChange "Intelligence" by 10;
+to removeCaffeinePerksPrimate:
+	say "     removing caffeinse ssprimate";
+	StatChange "Intelligence" by -10;
+
 to addCaffeinePerksRodent:
+	say "     Adding caffesine pessssrks rodent.";
+	StatChange "Strength" by 10;
 to removeCaffeinePerksRodent:
+	say "     removing caffessssssine Rsodent perks.";
+	StatChange "Strength" by -10;
 
 to addCaffeinePerksMustelid:
+	say "     Adding caffeinesssssss perks mustelid.";
+	StatChange "Dexterity" by 10;
 to removeCaffeinePerksMustlelid:
+	say "     removing caffeinsssse Musssstelid perks.";
+	StatChange "Dexterity" by -10;
 
 to addCaffeinePerksMarsupial:
+	say "     Adding caffeinessss pserks marsupial.";
+	StatChange "Intelligence" by 10;
 to removeCaffeinePerksMarsupial:
+	say "     removing caffeisnssssse Marsupial perks.";
+	StatChange "Intelligence" by -10;
 
 to addCaffeinePerksDefault:
+	say "     Adding caffeine pssssserks default.";
+	StatChange "Perception" by 10;
 to removeCaffeinePerksDefault:
+	say "     removing caffeinessss default perks.";
+	StatChange "Perception" by -10;
 
 
 
