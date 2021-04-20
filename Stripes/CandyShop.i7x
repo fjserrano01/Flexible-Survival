@@ -418,22 +418,22 @@ to UpdateCaffeineStatus:
 
 [Adds caffeine boost to player by bodypart of Player]
 to AddCaffeineBoost:
-	say "     adding caffeine boost.";
+	say "     adding caffeine.";
 	add "CaffeineBoost" to Traits of Player;
 	now PreviousCaffeineBody is Bodytype of Player;
 	if BodyName of Player is listed in Infections of RodentList:
 		addCaffeinePerksRodent;
-	else if BodyName of Player is listed in Infections of MustelidList:
+	else if BodyName of Player is listed in infections of MustelidList:
 		addCaffeinePerksMustelid;
-	else if BodyName of Player is listed in Infections of MarsupialList:
+	else if BodyName of Player is listed in infections of MarsupialList:
 		addCaffeinePerksMarsupial;
-	else if BodyName of Player is listed in Infections of AvianList:
+	else if BodyName of Player is listed in infections of AvianList:
 		addCaffeinePerksAvian;
-	else if BodyName of Player is listed in Infections of HumanList:
+	else if BodyName of Player is listed in infections of HumanList:
 		addCaffeinePerksHuman;
-	else if BodyName of Player is listed in Infections of InsectList:
+	else if BodyName of Player is listed in infections of InsectList:
 		addCaffeinePerksInsect;
-	else if BodyName of Player is listed in Infections of PrimateList:
+	else if BodyName of Player is listed in infections of PrimateList:
 		addCaffeinePerksPrimate;
 	else:
 		addCaffeinePerksDefault;
@@ -443,29 +443,29 @@ to removeCaffeineBoost:
 	if "CaffeineBoost" is listed in Traits of Player:
 		say "     Removing caffeine boost from player.";
 		remove "CaffeineBoost" from Traits of Player;
-		if PreviousCaffeineBody is listed in Infections of RodentList:
+		if PreviousCaffeineBody is listed in infections of RodentList:
 			removeCaffeinePerksRodent;
-		else if PreviousCaffeineBody is listed in Infections of MustelidList:
+		else if PreviousCaffeineBody is listed in infections of MustelidList:
 			removeCaffeinePerksMustlelid;
-		else if PreviousCaffeineBody is listed in Infections of MarsupialList:
+		else if PreviousCaffeineBody is listed in infections of MarsupialList:
 			removeCaffeinePerksMustlelid;
-		else if PreviousCaffeineBody is listed in Infections of AvianList:
+		else if PreviousCaffeineBody is listed in infections of AvianList:
 			removeCaffeinePerksAvian;
-		else if PreviousCaffeineBody is listed in Infections of HumanList:
+		else if PreviousCaffeineBody is listed in infections of HumanList:
 			removeCaffeinePerksHuman;
-		else if PreviousCaffeineBody is listed in Infections of InsectList:
+		else if PreviousCaffeineBody is listed in infections of InsectList:
 			removeCaffeinePerksInsect;
-		else if PreviousCaffeineBody is listed in Infections of PrimateList:
+		else if PreviousCaffeineBody is listed in infections of PrimateList:
 			removeCaffeinePerksPrimate;
 		else:
 			removeCaffeinePerksDefault;
 
 to addCaffeinePerksAvian:
 	say "     the caffeine is avian";
-	StatChange "Intelligence" by 10;
+	StatChange "Dexterity" by 10;
 to removeCaffeinePerksAvian:
 	say "     the caffeine is avian removed";
-	StatChange "Intelligence" by -10;
+	StatChange "Dexterity" by -10;
 
 to addCaffeinePerksHuman:
 	say "     the caffeine is  human";
@@ -475,45 +475,45 @@ to removeCaffeinePerksHuman:
 	StatChange "Intelligence" by -10;
 
 to addCaffeinePerksInsect:
-	say "     adding caffeinfghfge perggkss insect";
-	StatChange "Intelligence" by 10;
+	say "     the caffeine is insect";
+	StatChange "Dexterity" by 10;
 to removeCaffeinePerksInsect:
-	say "     removing caffefghfghine pfghessrk insect";
-	StatChange "Intelligence" by -10;
+	say "     the caffeine isinsect";
+	StatChange "Dexterity" by -10;
 
 to addCaffeinePerksPrimate:
-	say "     adding caffeinsse prssssimate";
+	say "     the caffeine  primate";
 	StatChange "Intelligence" by 10;
 to removeCaffeinePerksPrimate:
-	say "     removing caffeinse ssprimate";
+	say "     the caffeine primate";
 	StatChange "Intelligence" by -10;
 
 to addCaffeinePerksRodent:
-	say "     Adding caffesine pessssrks rodent.";
+	say "     the caffeine isrodent.";
 	StatChange "Strength" by 10;
 to removeCaffeinePerksRodent:
-	say "     removing caffessssssine Rsodent perks.";
+	say "     the caffeine Rsodent perks.";
 	StatChange "Strength" by -10;
 
 to addCaffeinePerksMustelid:
-	say "     Adding caffeinesssssss perks mustelid.";
+	say "     the caffeine mustelid.";
 	StatChange "Dexterity" by 10;
 to removeCaffeinePerksMustlelid:
-	say "     removing caffeinsssse Musssstelid perks.";
+	say "     the caffeine is Musssstelid perks.";
 	StatChange "Dexterity" by -10;
 
 to addCaffeinePerksMarsupial:
-	say "     Adding caffeinessss pserks marsupial.";
+	say "     the caffeine marsupial.";
 	StatChange "Intelligence" by 10;
 to removeCaffeinePerksMarsupial:
-	say "     removing caffeisnssssse Marsupial perks.";
+	say "     the caffeine Marsupial perks.";
 	StatChange "Intelligence" by -10;
 
 to addCaffeinePerksDefault:
-	say "     Adding caffeine pssssserks default.";
+	say "     the caffeine default.";
 	StatChange "Perception" by 10;
 to removeCaffeinePerksDefault:
-	say "     removing caffeinessss default perks.";
+	say "     the caffeine default perks.";
 	StatChange "Perception" by -10;
 
 

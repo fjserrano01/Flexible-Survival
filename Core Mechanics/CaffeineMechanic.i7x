@@ -6,6 +6,7 @@ name	desc	weight	object
 "energy drink"	"A plastic bottle of an energy drink, the label proudly displays 'Boost your energy to the max'"	1	energy drink
 "coffee togo"	"A cup of coffee, somehow its still hot."	1	coffee togo
 
+
 energy drink is a grab object. Understand "energy max" as energy drink.
 Usedesc of energy drink is "[energy drink use]".
 instead of sniffing energy drink:
@@ -14,6 +15,7 @@ to say energy drink use:
 	say "You get a fruity flavor with a strong sugar aftertaste.";
 	PlayerDrink 5;
 	AddCaffeinePoints 2;
+
 
 coffee togo is a grab object. Understand "coffee togo" as coffee togo.
 Usedesc of coffee togo is "[coffee togo use]".
@@ -24,6 +26,7 @@ to say coffee togo use:
 	PlayerDrink 5;
 	AddCaffeinePoints 1;
 
+
 to AddCaffeinePoints (num - a number):
 	let caffeineNum be caffeinehigh of Player + num;
 	if caffeineNum < 0:
@@ -31,7 +34,7 @@ to AddCaffeinePoints (num - a number):
 	now caffeinehigh of player is caffeineNum;
 	UpdateCaffeineStatus;
 	if Sleeptimercount is 0 or Sleeptimercount is less than 0:
-		say "     [bold type]You don't feel like there was any effect.[roman type][line break]";
+		say "     [bold type]Since you weren't that tired anyways, it doesn't feel like there was much effect from it.[roman type][line break]";
 	else:
 		decrease Sleeptimercount by num;
 		if Sleeptimercount is 0 or Sleeptimercount is less than 0:
@@ -39,5 +42,6 @@ to AddCaffeinePoints (num - a number):
 			now Sleeptimercount is 0;
 		else:
 			say "     [bold type]You feel a boost of energy.[roman type][line break]";
+
 
 CaffeineMechanic ends here.

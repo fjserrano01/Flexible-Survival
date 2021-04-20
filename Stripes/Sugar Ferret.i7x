@@ -24,9 +24,8 @@ to say losetosugarferret:
 			decrease lastcaffeine of Sweet Tooth by 2;
 			if BodyName of Player is "Sugar Ferret" and caffeinehigh of Player is 0:
 				say "     The wild ferrets rummage through your pack, pulling out all the soda they can find, cheering happily as they do, passing it around as they lustfully tease you. You quickly grow more excited and long to play with them. When one presses some cola to your lips, you drink it down without thinking, your wild, over-caffeinated excitement returning as your Sugar Ferret body reacts. You can feel the caffeine rushing through your system and you grab the nearest ferret, pulling them into a sweet kiss.";
-				decrease thirst of Player by 6;
-				sfcaffeine;
 				decrease caffeinehigh of Player by 2;
+				UpdateCaffeineStatus;
 			else if BodyName of Player is "Sugar Ferret" and caffeinehigh of Player > 0:
 				say "     The wild ferrets rummage through your pack, pulling out all the soda they can find, cheering happily as they do, passing it around as they lustfully tease you. You try to make a grab for your pop as you see them passing it around, at first just trying to get your stash back. But when one can is passed to you, you pop it open right away and start downing it. You can feel the sweet rush as it flows over your tongue and down your throat. You grab the nearest ferret, pulling them into a sweet kiss.";
 				increase caffeinehigh of Player by 2;
@@ -48,9 +47,8 @@ to say losetosugarferret:
 		else:
 			if BodyName of Player is "Sugar Ferret" and caffeinehigh of Player is 0:
 				say "     The wild ferrets rummage through your pack, but find it empty of soda. Not to let that get them down, they pull out some soda from their personal stashes to pass around while celebrating their victory. They cheer happily, passing the drinks around as they lustfully tease you. You quickly grow more excited and long to play with them. When one presses some cola to your lips, you drink it down without thinking, your wild, over-caffeinated excitement returning as your Sugar Ferret body reacts. You can feel the caffeine rushing through your system and you grab the nearest ferret, pulling them into a sweet kiss.";
-				decrease thirst of Player by 6;
-				sfcaffeine;
 				decrease caffeinehigh of Player by 2;
+				UpdateCaffeineStatus;
 			else if BodyName of Player is "Sugar Ferret" and caffeinehigh of Player > 0:
 				say "     The wild ferrets rummage through your pack, but find it empty of soda. Not to let that get them down, they pull out some soda from their personal stashes to pass around while celebrating their victory. They cheer happily, passing the drinks around as they lustfully tease you. You quickly grow more excited and long to play with them. In your excitement, you try to make a grab for your pop as you see them passing it around and soon you're downing a can of pop that's been passed to you. You can feel the sweet rush as it flows over your tongue and down your throat. You grab the nearest ferret, pulling them into a sweet kiss.";
 				increase caffeinehigh of Player by 2;
