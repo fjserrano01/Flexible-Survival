@@ -204,7 +204,10 @@ to RoomSave:
 		say "Error! Not enough rows to save all rooms in the table of GameRooms. Please report this on the FS Discord.";
 	repeat with x running through rooms: [rebuilds the table of GameRooms with current data]
 		choose a blank row in the table of GameRooms;
-		now Name entry is printed name of x;
+		if RoomID of x is "Room": [no specific differing RoomID set -> default to printed name]
+			now Name entry is printed name of x;
+		else: [room has a specific unique ID set]
+			now Name entry is RoomID of x;
 		if x is private:
 			now Reachability entry is "Private";
 		else:
@@ -220,7 +223,10 @@ to RoomSave:
 		if the number of entries in Invent of x is not 0:
 			repeat with y running from 1 to the number of entries in Invent of x: [rebuilds the table of RoomInventory with current data]
 				choose a blank row in the table of GameRoomInventories;
-				now RoomName entry is printed name of x;
+				if RoomID of x is "Room": [no specific differing RoomID set -> default to printed name]
+					now RoomName entry is printed name of x;
+				else: [room has a specific unique ID set]
+					now RoomName entry is RoomID of x;
 				now ItemName entry is entry y in Invent of x;
 	write File of RoomSave from the Table of GameRooms; [freshly made table gets saved to file]
 	write File of RoomInventorySave from the Table of GameRoomInventories; [freshly made table gets saved to file]
@@ -360,7 +366,11 @@ to CharacterSave:
 			now Name entry is CharacterName;
 			let LocationDesignation be "NPC Nexus"; [standard value = stash room]
 			if location of x is not nothing:
-				let LocationDesignation be printed name of location of x;
+				let LocationRoomObject be location of x;
+				if RoomID of LocationRoomObject is "Room": [no specific differing RoomID set -> default to printed name]
+					now LocationDesignation is printed name of LocationRoomObject;
+				else: [room has a specific unique ID set]
+					now LocationDesignation is RoomID of LocationRoomObject;
 			now LocationName entry is LocationDesignation;
 			[Numbers]
 			now Energy entry is Energy of x;

@@ -231,7 +231,7 @@ Include Stablemasters by Sarokcat.
 Include Stables Hotel by Sarokcat.
 Include State Fair by Sarokcat.
 Include Tattoo Parlor by Sarokcat.
-Include Tiger Den by Sarokcat.
+Include Tiger Den by Luneth.
 Include Tyr's Club by Kaleem mcintyre.
 Include Underwater Zone by Hellerhound.
 Include Urban Forest by Stripes.
@@ -628,6 +628,7 @@ Include Sand Man by Wahn.
 Include Satyr by Sarokcat.
 Include Satyress by Wahn.
 Include Scarab Beetle by Xenophiliac.
+Include Scorched Mole by Prometheus.
 Include Seraphim by Wahn.
 Include Shadow Beast by UrsaOmega.
 Include Siamese Cats by Stripes.
